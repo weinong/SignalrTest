@@ -23,10 +23,12 @@ namespace UniversalApp
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private static HubConnection hub;
+        private static IHubProxy proxy;
         public MainPage()
         {
-            var hub = new HubConnection("http://localhost:13442");
-            var proxy = hub.CreateHubProxy("MyHub");
+            hub = new HubConnection("http://localhost:13442");
+            proxy = hub.CreateHubProxy("MyHub");
             proxy.On<string>("ServerNotified", (message) =>
             {
                 System.Diagnostics.Debug.WriteLine(message);
