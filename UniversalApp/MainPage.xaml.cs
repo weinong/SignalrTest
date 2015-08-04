@@ -27,7 +27,7 @@ namespace UniversalApp
         private static IHubProxy proxy;
         public MainPage()
         {
-            hub = new HubConnection("http://localhost:13442");
+            hub = new HubConnection("http://localhost:13443");
             proxy = hub.CreateHubProxy("MyHub");
             proxy.On<string>("ServerNotified", (message) =>
             {

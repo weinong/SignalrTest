@@ -11,7 +11,7 @@ namespace SignalRConsoleApp
     {
         static void Main(string[] args)
         {
-            var hub = new HubConnection("http://localhost:13442");
+            var hub = new HubConnection("http://localhost:13443");
             var proxy = hub.CreateHubProxy("MyHub");
             proxy.On("ServerNotified", (message) =>
             {
